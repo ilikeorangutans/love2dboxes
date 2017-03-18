@@ -38,3 +38,6 @@ function love.resize(w, h)
   viewstack:resize(w, h)
 end
 
+function love.mousemoved(x, y)
+  viewstack:mousemoved(x, y)
+end
