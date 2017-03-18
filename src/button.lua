@@ -1,4 +1,7 @@
+local util = require('love2dboxes.util')
+local Box = require('love2dboxes.boxmodel')
 local Widget = require('love2dboxes.widget')
+
 local Button = Widget:new()
 
 function Button:new(o)
@@ -6,7 +9,7 @@ function Button:new(o)
   setmetatable(o, self)
   self.__index = self
 
-  box.Model.init(o)
+  Box.init(o)
 
   if not o.label then o.label = "Button" end
   if not o.onclick then o.onclick = function() print("clicked") end end
@@ -48,6 +51,5 @@ function Button:mousereleased(x, y, button, istouch)
     return true
   end
 end
-
 
 return Button

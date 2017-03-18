@@ -21,8 +21,10 @@ build = {
     ["love2dboxes.widget"] = 'src/widget.lua',
     ["love2dboxes.container"] = 'src/container.lua',
     ["love2dboxes.horizontal_container"] = 'src/horizontal_container.lua',
+    ["love2dboxes.vertical_container"] = 'src/vertical_container.lua',
     ["love2dboxes.label"] = 'src/label.lua',
     ["love2dboxes.viewstack"] = 'src/viewstack.lua',
+    ["love2dboxes.button"] = 'src/button.lua',
     ["love2dboxes.label"] = 'src/label.lua'
   }
 }

@@ -3,9 +3,9 @@ local Box = require('love2dboxes.boxmodel')
 local Widget = require('love2dboxes.widget')
 local Container = require('love2dboxes.container')
 
-local HorizontalContainer = Container:new()
+local VerticalContainer = Container:new()
 
-function HorizontalContainer:new(o)
+function VerticalContainer:new(o)
   o = o or {}
   setmetatable(o, self)
   self.__index = self
@@ -13,33 +13,35 @@ function HorizontalContainer:new(o)
   Box.init(o)
   Container.init(o)
 
+  o:setAlignment('fill', 'fill')
+
   return o
 end
 
-function HorizontalContainer:layout()
+function VerticalContainer:layout()
   Widget.layout(self)
 
   if #(self.widgets) == 0 then return end
 
   local sizes = {}
   for _, widget in pairs(self.widgets) do
-    local w = widget.dimensions.w
-    table.insert(sizes, w)
+    local h = widget.dimensions.h
+    table.insert(sizes, h)
   end
 
-  local widths = util.distributeSizes(self.widgetArea.w, sizes)
+  local heights = util.distributeSizes(self.widgetArea.h, sizes)
   local x = self.widgetArea.x
   local y = self.widgetArea.y
-  local h = self.widgetArea.h
+  local w = self.widgetArea.w
 
   for i, widget in pairs(self.widgets) do
-    local w = widths[i]
+    local h = heights[i]
 
     widget:setBounds(x, y, w, h)
     widget:layout()
 
-    x = x + w
+    y = y + h
   end
 end
 
-return HorizontalContainer
+return VerticalContainer
