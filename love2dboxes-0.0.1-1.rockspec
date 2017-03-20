@@ -25,6 +25,7 @@ build = {
     ["love2dboxes.label"] = 'src/label.lua',
     ["love2dboxes.viewstack"] = 'src/viewstack.lua',
     ["love2dboxes.button"] = 'src/button.lua',
+    ["love2dboxes.eventbinder"] = 'src/eventbinder.lua',
     ["love2dboxes.label"] = 'src/label.lua'
   }
 }
